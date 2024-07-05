@@ -1,0 +1,281 @@
+<% layout("/layouts/boilerplate")-%>
+<body>
+    <script src="java.js"></script>
+<style>
+    .scrolling a{
+       text-decoration:none;
+       color:black;
+       opacity:0.9;
+    }
+    #filters{
+        display:flex;
+        flex-wrap:wrap;
+        align-items:center;
+    }
+    .scrolling{
+        display:flex;
+        flex-wrap:wrap;
+    }
+    .toggle-switch{
+        border:1px solid black;
+        border-radius: 1rem;
+        height: 3rem;
+        text-align:center;
+        padding:0.5rem;
+        margin-left:2rem;
+        margin-right:2rem;
+        opacity:0.7;
+      
+    }
+    .toggle-switch:hover{
+        opacity:1;
+    }
+    .filter{
+        text-align:center;
+        margin-top :2rem;
+        margin-right: 2rem;
+        opacity:0.7;
+    }
+    .filter:hover{
+        opacity:1;
+    }
+    .gsticon{
+        display:none;
+    }
+    .left-btn , .right-btn{
+        display:none;
+    }
+    @media (max-width : 2000px) {
+        .left-btn{
+        margin-right:2rem;
+        display:inline;
+        border: none;
+        border-radius:100%;
+        background-color:none;
+        height:2rem;
+        width:2rem;
+
+
+    }
+    .left-btn:hover , .right-btn:hover{
+        background-color:red;
+        color:white;
+    }
+        .right-btn{
+            display:inline;
+            border: none;
+            border-radius:100%;
+            background-color:none;
+            height:2rem;
+            width:2rem;
+            margin-left:2rem;
+        }
+       
+        .scrolling{
+            width: 950px;
+            display:flex;
+            flex-wrap:nowrap;
+            overflow-y: hidden;
+            overflow-x:hidden;
+        }
+        @media (max-width:1400px){
+            .scrolling{
+                width:600px;
+            }
+        }
+        @media (max-width:1000px){
+            .scrolling {
+                width: 300px;
+            }
+        }
+    }
+    @media (max-width:700px){
+        .left-btn , .right-btn{
+            display:none;
+        }
+    
+    }
+</style>
+<script>
+    // let leftBtn = document.getElementById("left-btn")
+    // let rightbtn = document.getElementById("right-btn")
+    // console.log(leftBtn)
+    // console.log(leftBtn[0])
+    // leftBtn.addEventListener("click",()=>{
+    //     let container = document.getElementById('scrolling');
+	// 		container.scrollTo({
+	// 			left:container.scrollLeft - 200,
+	// 			top: 0,
+	// 			behavior: "smooth"
+	// 		});
+    // })
+
+    // rightbtn.addEventListener("click",()=>{
+    //     let container = document.getElementById('scrolling');
+	// 		container.scrollTo({
+	// 			left:container.scrollLeft + 200,
+	// 			top: 0,
+	// 			behavior: "smooth"
+	// 		});
+    // })
+    let scrolllk=0
+    function clickleft() {
+			let container = document.getElementsByClassName('scrolling');
+			container[0].scrollTo({
+				left:scrolllk- 300,
+				top: 0,
+				behavior: "smooth"
+			});
+            scrolllk = scrolllk - 300
+		}
+
+		function clickright() {
+			let container = document.getElementsByClassName('scrolling');
+			container[0].scrollTo({
+				left: scrolllk+  300,
+				top: 0,
+				behavior: "smooth"
+			});
+            scrolllk = scrolllk + 300
+		}
+</script>
+    <div id="filters">
+      
+        <button class="left-btn" onclick="clickleft()"><i class="fa-solid fa-less-than"></i></button>
+        <div class="scrolling" id="scrolling">
+            <div class="filter">
+                <a href="/listings/category/Trending">
+                <div><i class="fa-solid fa-fire"></i></div>
+                <p>Trending</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/listings/category/rooms">
+                <div><i class="fa-solid fa-bed"></i></div>
+                <p>Rooms</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/listings/category/iconiccities">
+                <div><i class="fa-solid fa-mountain-city"></i></div>
+                <p>Iconic cities</p>
+                </a>
+            </div>
+           
+            <div class="filter">
+                <a href="/listings/category/mountains">
+                <div><i class="fa-solid fa-mountain"></i></div>
+                <p>Mountains</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/listings/category/castles">
+                <div><i class="fa-brands fa-fort-awesome"></i></div>
+                <p>Castles</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/listings/category/amazingpool">
+                <div><i class="fa-solid fa-person-swimming"></i></div>
+                <p>Amazing pool</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/listings/category/camping">
+                <div><i class="fa-solid fa-campground"></i></div>
+                <p>camping</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/listings/category/Farms">
+                <div><i class="fa-solid fa-cow"></i></div>
+                <p>Farms</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/listings/category/artics">
+                <div><i class="fa-brands fa-galactic-republic"></i></div>
+                <p>Artics</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/listings/category/artics">
+                <div><i class="fa-brands fa-galactic-republic"></i></div>
+                <p>Artics</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/listings/category/Rooms">
+                <div><i class="fa-brands fa-galactic-republic"></i></div>
+                <p>Artics</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/listings/category/Rooms">
+                <div><i class="fa-brands fa-galactic-republic"></i></div>
+                <p>Artics</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/listings/category/Rooms">
+                <div><i class="fa-brands fa-galactic-republic"></i></div>
+                <p>Artics</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/listings/category/artics">
+                <div><i class="fa-brands fa-galactic-republic"></i></div>
+                <p>Artics</p>
+                </a>
+            </div>
+            <div class="filter">
+                <a href="/listings/category/Rooms">
+                <div><i class="fa-brands fa-galactic-republic"></i></div>
+                <p>Artics</p>
+                </a>
+            </div>
+        </div>
+        <button class="right-btn" onclick="clickright()"><i class="fa-solid fa-greater-than"></i></button>
+        <div class="toggle-switch ms-auto">
+            <div class="form-check-reverse form-switch">
+                <input class="form-check-input " type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">togle switch</label>
+            </div>
+        </div>
+    </div>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+        <% for (let list of allistings) { %>
+            <a href="/listings/<%=list.id%>" class="linking-link">
+           <div class="card cols listing-card">
+            <img src=<%=list.image.url%>  class="card-img-top" alt="listing_image" style="height: 20rem;">
+            <div class="card-img-overlay">ABC</div>
+            <div class="card-body">
+                <b><h5 class="card-title"><%=list.title%></h5></b>
+                <br>
+                <p>&#8377;<%=list.price.toLocaleString("en-IN")%>
+                <i class="gsticon">&nbsp; &nbsp; +18% GST</i></p>
+            </div>
+            </div>
+            </a>
+        <%}%>
+    </div>
+        <form method="GET", action="/listings/newe">
+            <button>Create New</button>
+        </form>
+</body>
+<script>
+   let toggle=document.getElementById("flexSwitchCheckDefault")
+   toggle.addEventListener("click",()=>{
+    let icon = document.getElementsByClassName("gsticon")
+    for(tax of icon){
+        console.log(tax.style.display)
+
+        if(tax.style.display != "inline"){
+            tax.style.display = "inline"
+        }
+        else{
+            tax.style.display = "none"
+        }
+    }
+   })
+</script>

@@ -1,0 +1,65 @@
+<% layout("/layouts/boilerplate")-%>
+<style>
+    .inp-select{
+        margin-top:1.8rem;
+    }
+</style>
+<body>
+    <h2 class="offset-2"> YOU ARE HERE TO Edit</h2>
+    <div class="row mt-3 offset-2">
+    <div class="col-8">
+    <form method ="post"  action= "/listings/<%=list.id%>?_method=PATCH" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input name="listing[title]" value=<%=list.title%>  type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]"  class="form-control" required><%=list.description%></textarea>
+        </div>
+        <div class="mb-3">
+           
+            <img src="<%=originalUrl%>" width="350px" height="250px">
+        </div>
+        <div class="row">
+            <div class="mb-3">
+                <label for="image" class="form-label">Image url</label>
+                <input name="listing[image]"  type="file" class="form-control">
+            </div>
+            <div class="mb-3 col-4">
+                <label class="form-label" for="category">Category</label>
+                <select name="listing[category]"  class="btn-inp" id="category" required>
+                    <option value=<%=list.category%> selected><%=list.category%></option>
+                    <option value="rooms">Rooms</option>
+                    <option value="iconincities">Iconic cities</option>
+                    <option class="Trending">Trending</option>
+                    <option value="mountains">Mountains</option>
+                    <option value="amazingpool">Amazing pools</option>
+                    <option value="artics">Artics</option>
+                    <option value="farms">Farms</option>
+                    <option value="camping">Camping</option>
+                    <option value="castles">Castles</option>
+                   
+                </select>
+            </div>
+        <div class="row">
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input name="listing[price]" value=<%=list.price%>  type="number" class="form-control" required>
+            </div>
+            <div class="mb-3 col-4">
+                <label for="country" class="form-label">Country</label>
+                <input name="listing[country]" value=<%=list.country%>  type="text" class="form-control" required>
+            </div>
+        </div>
+            <div class="mb-3 col-8">
+                <label for="location" class="form-label">Location</label>
+                <input name="listing[location]" value=<%=list.location%>  type="text" class="form-control" required>
+            </div>
+        </div>
+        <button class="btn btn-dark edit-3 mt-3 mb-3">ADD</button>
+    </form>
+    </div>
+    </div>
+
+</body>
