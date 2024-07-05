@@ -82,13 +82,12 @@ module.exports.delete = asyncwrap(async(req,res,next)=>{
     })
 module.exports.searchByName = asyncwrap(async(req,res)=>{
     let {Name} =req.query
-    let url = res.locals.path
     let listing = await Listing.find({title : Name})
     if(listing.length > 0){
         res.redirect(`/listings/${listing[0]._id}`)
     }
     else{
         req.flash("error","That list doesnt not exist")
-        res.redirect(url)
+        res.redirect("/listings")
     }
 })
