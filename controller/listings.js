@@ -81,7 +81,7 @@ module.exports.delete = asyncwrap(async(req,res,next)=>{
     req.flash("sucess","sucessfully deleted")
     res.redirect("/listings")
     })
-module.exports.searchByName = async(req,res)=>{
+module.exports.searchByName = asyncwrap(async(req,res)=>{
     let {Name} =req.query
     let listing = await Listing.find({title : Name})
     console.log(Listing)
@@ -92,4 +92,4 @@ module.exports.searchByName = async(req,res)=>{
         req.flash("error","That list doesnt not exist")
         res.redirect("/listings")
     }
-}
+})
