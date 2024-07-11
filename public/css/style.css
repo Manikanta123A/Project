@@ -104,7 +104,7 @@ body{
     #div{
         border:1px solid black !important;
         border-radius:15px !important;
-        width:300px !important;
+        width:95% !important;
         height:fit-content !important;
         padding:1rem !important;
         margin-right:5rem !important;
