@@ -2,7 +2,7 @@ body{
     min-height:100vh;
     display:flex;
     flex-direction:column;
-
+    overflow-x:hidden;
 }
 .container{
     flex:1;
@@ -77,9 +77,37 @@ body{
 #map{
     height:400px;
     width:80vh;
+    margin-right:2rem;
 }
-@media (min-width: 800px) {
+@media (max-width: 800px) {
     body {
       background-color: lavender;
     }
-  }
+    #map{
+        width:100%;
+        height:300px;
+    }
+    .col-8 ,.offset-2 ,.mb-3 ,.col-8 ,.offset-2 ,.mb-3,
+    .card-img-top,.card ,.img-show, .image-min{
+        width:100% !important;
+        margin:0px !important;
+    }
+    .fs{
+        width:100% !important;
+        margin:2px !important;
+        font-size:1rem;
+       
+    }
+    .card{
+        border:none !important;
+    }
+    #div{
+        border:1px solid black !important;
+        border-radius:15px !important;
+        width:300px !important;
+        height:fit-content !important;
+        padding:1rem !important;
+        margin-right:5rem !important;
+    }
+
+}

@@ -45,6 +45,21 @@
     .left-btn , .right-btn{
         display:none;
     }
+    .sst{
+        height:20rem;
+        border: none !important;
+        width:100% !important;
+        border-radius:1rem !important;
+        object-fit: cover !important;
+    }
+    .scrolling::-webkit-scrollbar {
+        display: none; /* for Chrome, Safari, and Opera */
+        }
+    .scrolling{
+        -ms-overflow-style: none; 
+        scrollbar-width: none; 
+        overflow-x:scroll;
+    }
     @media (max-width : 2000px) {
         .left-btn{
         margin-right:2rem;
@@ -76,25 +91,78 @@
             display:flex;
             flex-wrap:nowrap;
             overflow-y: hidden;
-            overflow-x:hidden;
+            overflow-x:visible;
+        }
+        .sst{
+            height:20rem;
         }
         @media (max-width:1400px){
             .scrolling{
                 width:600px;
+            }
+            .sst{
+                height:15rem;
             }
         }
         @media (max-width:1000px){
             .scrolling {
                 width: 300px;
             }
+            .sst{
+                height:20rem;
+            }
+        }
+        @media (max-width:700px){
+
+            .scrolling{
+                width: 100px
+            }
+            .filter{
+                margin-top :2rem;
+                margin-right: 1rem;
+                opacity:0.7;
+    }
+            .scrolling a{
+                font-size: 0.8rem;
+            }
+            .sst{
+                height:17rem;
+            }
+
+            @media (max-width:400px){
+                .scrolling{
+                    width:200px;
+                }
+                .scrolling a{
+                    font-size: 0.8rem;
+                }
+                .left-btn , .right-btn{
+                    display:flex;
+                    flex-wrap:nowrap;
+                    margin-left:0.3rem;
+                    margin-right:0.3rem;
+                    height:1rem;
+                    width:1rem;
+                    padding:0;
+                }
+                .left-btn{
+                    margin-right:0.6rem;
+                }
+                .right-btn{
+                    justify-content:center;
+                    margin-left:0.6rem;
+                }
+                .toggle-switch{
+                    display:none;
+      
+    }
+                .sst{
+                    height:10rem;
+                }
+            }
         }
     }
-    @media (max-width:700px){
-        .left-btn , .right-btn{
-            display:none;
-        }
     
-    }
 </style>
 <script>
     // let leftBtn = document.getElementById("left-btn")
@@ -119,24 +187,25 @@
 	// 		});
     // })
     let scrolllk=0
+    let x = 10
     function clickleft() {
 			let container = document.getElementsByClassName('scrolling');
 			container[0].scrollTo({
-				left:scrolllk- 300,
+				left:scrolllk- x,
 				top: 0,
 				behavior: "smooth"
 			});
-            scrolllk = scrolllk - 300
+            scrolllk = scrolllk - x
 		}
 
 		function clickright() {
 			let container = document.getElementsByClassName('scrolling');
 			container[0].scrollTo({
-				left: scrolllk+  300,
+				left: scrolllk+ x,
 				top: 0,
 				behavior: "smooth"
 			});
-            scrolllk = scrolllk + 300
+            scrolllk = scrolllk + x
 		}
 </script>
     <div id="filters">
@@ -247,7 +316,7 @@
         <% for (let list of allistings) { %>
             <a href="/listings/<%=list.id%>" class="linking-link">
            <div class="card cols listing-card">
-            <img src=<%=list.image.url%>  class="card-img-top" alt="listing_image" style="height: 20rem;">
+            <img src=<%=list.image.url%>  class="img-thumbnail sst" alt="listing_image">
             <div class="card-img-overlay">ABC</div>
             <div class="card-body">
                 <b><h5 class="card-title"><%=list.title%></h5></b>

@@ -1,3 +1,4 @@
+
 <% layout("/layouts/boilerplate")-%>
 <script>maptoken ="<%=process.env.MAP_TOKEN%>"
     coordinates = <%-JSON.stringify(list.geometry.coordinates)%>
@@ -7,7 +8,7 @@
             <h2>DETAILS</h2>
         </div>
         <div class="card col-6 row-10 offset-2 listing-card">
-                <img src=<%=list.image.url%> alt="listing_image" class="card-img-top img-show" >
+                <img src=<%=list.image.url%> alt="listing_image" class="card-img-top img-show image-min" >
                 <div class="card-body">
                         <p class="card-text"><b><%=list.owner.username%></b><br>
                             <%= list.description%><br>
@@ -18,12 +19,11 @@
                 </div>
         </div>
         <%if(currUser && currUser._id.equals(list.owner._id)) {%>
-        <div class="btns">
-            <a href="/listings/<%=list._id %>/Edit" class="btn btn-dark col-1 offset-3">Edit</a>
-            <br>
-
+        <div class="btns offset-3">
+            <a href="/listings/<%=list._id %>/Edit" class="btn btn-dark">Edit</a>
+            &nbsp;&nbsp;
             <form method="Post" action="/listings/<%=list._id%>?_method=DELETE">
-            <button class="btn btn-dark offset-4">DELETE</button>
+            <button class="btn btn-dark ">DELETE</button>
             </form>
 
         </div>
@@ -68,7 +68,7 @@
 
             <% for(review of list.reviews)  {%>
                 <div class="card col-5 mb-3 ms-3">
-                <div class="card-body">
+                <div class="card-body" id="div">
                  <h4 class="card-title">@<%=review.owner.username%></h4>
                  <p class="starability-result card-text" data-rating="<%= review.rating%>">
                     Rated: 3 stars

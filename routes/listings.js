@@ -8,7 +8,6 @@ const {storage} = require("../cloudinary.js")
 const uploads = multer({storage})
 
 
-
 router.route("/")
 .get(listingcontroller.index)
 .post(isloggedIn,uploads.single("listing[image]"),listingcontroller.add)
