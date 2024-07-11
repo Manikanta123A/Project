@@ -115,7 +115,8 @@
         @media (max-width:700px){
 
             .scrolling{
-                width: 100px
+                width: 70%;
+               
             }
             .filter{
                 margin-top :2rem;
@@ -129,9 +130,9 @@
                 height:17rem;
             }
 
-            @media (max-width:600px){
+            @media (max-width:400px){
                 .scrolling{
-                    width:200px;
+                    width:70%;
                 }
                 .scrolling a{
                     font-size: 0.8rem;
@@ -316,7 +317,7 @@
         <% for (let list of allistings) { %>
             <a href="/listings/<%=list.id%>" class="linking-link">
            <div class="card cols listing-card">
-            <img src=<%=list.image.url%>  class="img-thumbnail sst" alt="listing_image">
+            <img src=<%=list.image.url%>  class="card-img-top img-show image-min" alt="listing_image">
             <div class="card-img-overlay">ABC</div>
             <div class="card-body">
                 <b><h5 class="card-title"><%=list.title%></h5></b>
